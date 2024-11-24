@@ -12,8 +12,7 @@ source:
     - gh-39.patch  # https://github.com/grimme-lab/multicharge/pull/39
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
 
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -36,6 +35,8 @@ requirements:
     - libblas
     - liblapack
     - mctc-lib
+  run:
+    - libgomp  # [win]
 
 test:
   requires:
