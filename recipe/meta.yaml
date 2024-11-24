@@ -30,11 +30,13 @@ requirements:
     - asciidoctor  # [unix]
     - pkg-config
     - llvm-openmp  # [osx]
-    - libgomp  # [linux or win]
+    - libgomp  # [linux]
   host:
     - libblas
     - liblapack
     - mctc-lib
+  run:
+    - libgomp  # [win]
 
 test:
   requires:
