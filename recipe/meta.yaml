@@ -30,7 +30,7 @@ requirements:
     - asciidoctor  # [unix]
     - pkg-config
     - llvm-openmp  # [osx]
-    - libgomp  # [linux]
+    - libgomp  # [linux or win]
   host:
     - libblas
     - liblapack
