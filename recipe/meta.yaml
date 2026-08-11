@@ -10,7 +10,7 @@ source:
   sha256: fc6dee93fd6957a516137205f5a6754b218904bc38bf60f5a509f2a1b14735be
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name }}
@@ -23,12 +23,9 @@ outputs:
 
     requirements:
       build:
-        - {{ stdlib('c') }}  # [unix]
-        - {{ stdlib('m2w64_c') }}  # [win]
-        - {{ compiler('c') }}  # [unix]
-        - {{ compiler('fortran') }}  # [unix]
-        - {{ compiler('m2w64_c') }}  # [win]
-        - {{ compiler('m2w64_fortran') }}  # [win]
+        - {{ stdlib("c") }}
+        - {{ compiler("c") }}
+        - {{ compiler("fortran") }}
         - meson
         - ninja
         - pkg-config
