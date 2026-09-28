@@ -10,7 +10,7 @@ source:
   sha256: fc6dee93fd6957a516137205f5a6754b218904bc38bf60f5a509f2a1b14735be
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name }}
@@ -58,11 +58,13 @@ outputs:
     build:
       string: {{ module_abi }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
       run_exports:
-        - {{ pin_subpackage(name, max_pin='x.x') }} {{ module_abi }}_*
+        - {{ pin_subpackage(name, max_pin='x.x') }}
+        - {{ name }} * {{ module_abi }}_*
 
     requirements:
       run:
-        - {{ pin_subpackage(name, max_pin='x.x') }} {{ module_abi }}_*
+        - {{ pin_subpackage(name, max_pin='x.x') }}
+        - {{ name }} * {{ module_abi }}_*
 
     test:
       requires:
