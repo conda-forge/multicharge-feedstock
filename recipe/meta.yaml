@@ -1,5 +1,5 @@
 {% set name = "multicharge" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name }}-pkg
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/grimme-lab/multicharge/releases/download/v{{ version }}/multicharge-{{ version }}-source.tar.xz
-  sha256: fc6dee93fd6957a516137205f5a6754b218904bc38bf60f5a509f2a1b14735be
+  sha256: 4d883d42d5faf826b99e552ac9eab4c4fd8c3c5b12aced66c295b78006222ede
 
 build:
-  number: 3
+  number: 0
 
 outputs:
   - name: {{ name }}
-    script: build_pkg.sh   # [unix]
+    script: build_pkg.sh  # [unix]
     script: build_pkg.bat  # [win]
     build:
       string: {{ module_abi }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
