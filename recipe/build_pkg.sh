@@ -27,7 +27,8 @@ meson setup _build \
 
 meson compile -C _build
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
-  meson test -C _build --no-rebuild --print-errorlogs
+  export OMP_NUM_THREADS=2,1
+  meson test -C _build -j 1 -t 2 --no-rebuild --print-errorlogs
 fi
 meson install -C _build --no-rebuild
 
